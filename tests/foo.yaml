@@ -1,0 +1,11 @@
+- hosts: controller
+  tasks:
+    - name: Bootstrap tox environment
+      args:
+        chdir: ~/src/github.com/ansible/network
+      shell: tox -v -evenv --notest
+
+    - name: Run ansible tests
+      args:
+        chdir: ~/src/github.com/ansible/network
+      shell: tox -evenv -- ansible-playbook -v -c network_cli tests/vyos/modules/interfaces/main.yaml
