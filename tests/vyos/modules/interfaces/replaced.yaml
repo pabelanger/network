@@ -9,10 +9,6 @@
     config:
       - name: eth1
         description: "Replaced by Ansible"
-
-      - name: eth2
-        mtu: 1500
-        description: "Replaced by Ansible"
     state: replaced
   register: result
 
@@ -22,10 +18,6 @@
       - "'delete interfaces ethernet eth1 speed' in result.commands"
       - "'delete interfaces ethernet eth1 duplex' in result.commands"
       - "'set interfaces ethernet eth1 description \\'Replaced by Ansible\\'' in result.commands"
-      - "'set interfaces ethernet eth2 mtu \\'1500\\'' in result.commands"
-      - "'delete interfaces ethernet eth2 speed' in result.commands"
-      - "'delete interfaces ethernet eth2 duplex' in result.commands"
-      - "'set interfaces ethernet eth2 description \\'Replaced by Ansible\\'' in result.commands"
 
 - name: Replace device configurations of listed interfaces with provided configurarions
   vyos_interfaces: *replaced
