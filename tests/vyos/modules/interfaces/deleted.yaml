@@ -8,8 +8,6 @@
   vyos_interfaces: &deleted
     config:
       - name: eth1
-
-      - name: eth2
     state: deleted
   register: result
 
@@ -21,7 +19,6 @@
       - "'delete interfaces ethernet {{ intf }} mtu' in result.commands"
   loop:
     - eth1
-    - eth2
   loop_control:
     loop_var: intf
 
