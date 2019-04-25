@@ -1,0 +1,6 @@
+- hosts: controller
+  tasks:
+    - name: Bootstrap tox environment
+      args:
+        chdir: ~/src/github.com/ansible/network
+      shell: tox -v -evenv --notest
