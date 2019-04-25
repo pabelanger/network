@@ -5,7 +5,7 @@
     - net_configuration_interfaces
   tasks:
     - import_role:
-        name: ~/collections/network
+        name: network
 
     - include_tasks: "{{ item }}.yaml"
       loop:
